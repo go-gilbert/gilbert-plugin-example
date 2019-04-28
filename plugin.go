@@ -1,4 +1,4 @@
-package plugin
+package main
 
 import (
 	"github.com/x1unix/gilbert/plugins"
@@ -11,7 +11,7 @@ type Params struct {
 }
 
 type Plugin struct {
-	scope *scope.Scope
+	scope  *scope.Scope
 	params Params
 }
 

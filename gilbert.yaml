@@ -3,8 +3,6 @@ tasks:
   build:
   - plugin: build
     params:
-      source: ./win32
-      buildMode: c-shared
-      outputPath: ./build/plugin.dll
-      target:
-        os: windows
+      source: .
+      buildMode: plugin
+      outputPath: ./build/gilbert-plugin-example.so
