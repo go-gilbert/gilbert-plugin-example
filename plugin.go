@@ -14,7 +14,7 @@ type Plugin struct {
 }
 
 func (p *Plugin) Call(ctx sdk.JobContextAccessor, r sdk.JobRunner) (err error) {
-	ctx.Log().Info("Hello World")
+	ctx.Log().Info(p.params.Message)
 	return nil
 }
 
