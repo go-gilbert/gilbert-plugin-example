@@ -35,5 +35,11 @@ Each plugin should follow these simple rules:
 
 Each plugin exports two procedures:
 
-* `GetPluginName() string` - returns plugin name, recommended format is `@author/name`
-* `NewPlugin(sdk.ScopeAccessor, sdk.PluginParams, sdk.Logger) (sdk.Plugin, error)` - plugin instance constructor
+
+#### `GetPluginName() string`
+
+Returns plugin name, recommended format is `@author/name`
+
+#### `NewPlugin(sdk.ScopeAccessor, sdk.PluginParams, sdk.Logger) (sdk.Plugin, error)`
+
+Plugin instance constructor
