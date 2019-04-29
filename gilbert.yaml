@@ -5,7 +5,7 @@ vars:
 
 mixins:
   build:
-  - description: 'building '{{name}}' for {{os}} {{arch}}'
+  - description: 'building "{{name}}" for {{os}} {{arch}}'
     plugin: build
     params:
       source: .
@@ -24,7 +24,7 @@ tasks:
   - mixin: build
     vars:
       os: 'linux'
-      arch: 'i386'
+      arch: '386'
   - mixin: build
     vars:
       os: 'darwin'
@@ -32,7 +32,7 @@ tasks:
   - mixin: build
     vars:
       os: 'freebsd'
-      arch: 'i386'
+      arch: '386'
   - mixin: build
     vars:
       os: 'freebsd'
