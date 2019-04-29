@@ -1,9 +1,7 @@
 package main
 
 import (
-	"github.com/x1unix/gilbert/plugins"
-	"github.com/x1unix/gilbert/runner/job"
-	"github.com/x1unix/gilbert/scope"
+	"github.com/go-gilbert/gilbert-sdk"
 )
 
 type Params struct {
@@ -11,16 +9,16 @@ type Params struct {
 }
 
 type Plugin struct {
-	scope  *scope.Scope
+	scope  sdk.ScopeAccessor
 	params Params
 }
 
-func (p *Plugin) Call(ctx *job.RunContext, r plugins.JobRunner) (err error) {
-	ctx.Logger.Info("Hello World")
+func (p *Plugin) Call(ctx sdk.JobContextAccessor, r sdk.JobRunner) (err error) {
+	ctx.Log().Info("Hello World")
 	return nil
 }
 
-func (p *Plugin) Cancel(ctx *job.RunContext) error {
-	ctx.Logger.Info("Cancel callback call")
+func (p *Plugin) Cancel(ctx sdk.JobContextAccessor) error {
+	ctx.Log().Info("Cancel callback call")
 	return nil
 }
