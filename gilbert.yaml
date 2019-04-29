@@ -1,5 +1,43 @@
 version: "1.0"
+
+vars:
+  name: gilbert-plugin-example
+
+mixins:
+  build:
+  - description: 'building '{{name}}' for {{os}} {{arch}}'
+    plugin: build
+    params:
+      source: .
+      buildMode: plugin
+      outputPath: './build/{{name}}_{{os}}-{{arch}}.so'
+      target:
+        os: '{{os}}'
+        arch: '{{arch}}'
+
 tasks:
+  all:
+  - mixin: build
+    vars:
+      os: 'linux'
+      arch: 'amd64'
+  - mixin: build
+    vars:
+      os: 'linux'
+      arch: 'i386'
+  - mixin: build
+    vars:
+      os: 'darwin'
+      arch: 'amd64'
+  - mixin: build
+    vars:
+      os: 'freebsd'
+      arch: 'i386'
+  - mixin: build
+    vars:
+      os: 'freebsd'
+      arch: 'amd64'
+
   build:
   - plugin: build
     params:
