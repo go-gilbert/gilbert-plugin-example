@@ -2,24 +2,30 @@
 
 This is a sample plugin for Gilbert task runner that prints a message to log
 
+## Actions
 
-## Usage
+### `hello-world` 
 
-### Example
+A simple action that prints text to the console
+
+#### Usage
 
 ```yaml
+plugins:
+  - github://github.com/go-gilbert/gilbert-plugin-example
+
 tasks:
   hello-world:
-    - plugin: '@go-gilbert/example'
+    - action: 'example-plugin:hello-world'
       params:
         message: 'hello world'
 ```
 
-### Params
+#### Params
 
 * `message` - a message to print
 
-## Plugin How To
+## Development
 
 ### Compatibility
 
@@ -33,13 +39,13 @@ Each plugin should follow these simple rules:
 
 ### Structure
 
-Each plugin exports two procedures:
+Each plugin should exports two procedures:
 
 
 #### `GetPluginName() string`
 
-Returns plugin name, recommended format is `@author/name`
+Returns plugin name
 
-#### `NewPlugin(sdk.ScopeAccessor, sdk.PluginParams, sdk.Logger) (sdk.Plugin, error)`
+#### `func GetPluginActions() sdk.Actions`
 
-Plugin instance constructor
+Returns a set of plugin actions exported by plugin

@@ -4,18 +4,27 @@ import (
 	"github.com/go-gilbert/gilbert-sdk"
 )
 
-func NewPlugin(scope sdk.ScopeAccessor, params sdk.PluginParams, _ sdk.Logger) (sdk.Plugin, error) {
+// NewHelloAction is action constructor
+func NewHelloAction(scope sdk.ScopeAccessor, params sdk.ActionParams) (sdk.ActionHandler, error) {
 	p := Params{}
 	if err := params.Unmarshal(&p); err != nil {
 		return nil, err
 	}
 
-	return &Plugin{
+	return &HelloAction{
 		scope:  scope,
 		params: p,
 	}, nil
 }
 
+// GetPluginName returns plugin name
 func GetPluginName() string {
-	return "@go-gilbert/example"
+	return "example-plugin"
+}
+
+// GetPluginActions returns available plugin actions
+func GetPluginActions() sdk.Actions {
+	return sdk.Actions{
+		"hello-world": NewHelloAction,
+	}
 }
