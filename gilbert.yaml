@@ -29,14 +29,6 @@ tasks:
     vars:
       os: 'darwin'
       arch: 'amd64'
-  - mixin: build
-    vars:
-      os: 'freebsd'
-      arch: '386'
-  - mixin: build
-    vars:
-      os: 'freebsd'
-      arch: 'amd64'
 
   build:
   - plugin: build
