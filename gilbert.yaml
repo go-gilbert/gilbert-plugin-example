@@ -6,7 +6,7 @@ vars:
 mixins:
   build:
   - description: 'building "{{name}}" for {{os}} {{arch}}'
-    plugin: build
+    action: build
     params:
       source: .
       buildMode: plugin
@@ -31,7 +31,7 @@ tasks:
       arch: 'amd64'
 
   build:
-  - plugin: build
+  - action: build
     params:
       source: .
       buildMode: plugin
