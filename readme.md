@@ -1,5 +1,7 @@
 # Example plugin
 
+## This repo is obsolete, please see [this issue](https://github.com/go-gilbert/gilbert/issues/72)
+
 This is a sample plugin for Gilbert task runner that prints a message to log
 
 ## Actions
